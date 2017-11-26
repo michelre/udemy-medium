@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './configureStore';
 
-import ArticleEditor from './ArticleEditor';
+import Root from './components/Root'
 
-ReactDOM.render(<ArticleEditor/>, document.querySelector('#app'));
+configureStore().then((store) => {
+  ReactDOM.render(<Root store={store}/>, document.querySelector('#app'));
+});

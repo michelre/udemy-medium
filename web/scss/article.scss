@@ -1,0 +1,65 @@
+@import "variables";
+
+.article-container {
+
+  font-size: 21px;
+  padding: 0 20px;
+  @media screen and (max-width: 1024px) {
+    max-width: 100% !important;
+  }
+
+  max-width: 65%;
+  margin: auto;
+
+  p {
+    line-height: 1.58;
+  }
+
+  .section {
+
+    img:first-child {
+      width: 100% !important;
+    }
+
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  h4 {
+    font-family: "Kievit";
+    font-size: 34px;
+  }
+
+  a {
+    color: black;
+  }
+
+  hr {
+    border: none;
+    margin-bottom: 0;
+    text-align: center;
+    &:before {
+      content: '...';
+      letter-spacing: 17px;
+      font-weight: bold;
+      font-size: 30px;
+      position: relative;
+      top: -10px;
+    }
+  }
+
+  .author-details {
+    margin-top: 35px;
+  }
+
+  pre {
+    background: rgba(0,0,0,.05);
+    box-sizing: border-box;
+    padding: 20px;
+    white-space: pre-wrap;
+    width: 100%;
+  }
+
+}

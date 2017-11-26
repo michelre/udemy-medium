@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'FF Kievit Pro';
+  src: url('../fonts/FFKievitPro-Light.eot');
+  src: url('../fonts/FFKievitPro-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FFKievitPro-Light.woff2') format('woff2'),
+  url('../fonts/FFKievitPro-Light.woff') format('woff'),
+  url('../fonts/FFKievitPro-Light.ttf') format('truetype'),
+  url('../fonts/FFKievitPro-Light.svg#FFKievitPro-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kievit';
+  src: url('../fonts/Kievit-Medium.eot');
+  src: url('../fonts/Kievit-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Kievit-Medium.woff2') format('woff2'),
+  url('../fonts/Kievit-Medium.woff') format('woff'),
+  url('../fonts/Kievit-Medium.ttf') format('truetype'),
+  url('../fonts/Kievit-Medium.svg#Kievit-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}

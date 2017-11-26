@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "slug": "home", "name": "Home" },
+    { "slug": "web-development", "name": "Web Development" },
+    { "slug": "web-design", "name": "Web Design" },
+    { "slug": "marketing", "name": "Marketing" },
+    { "slug": "wordpress", "name": "Wordpress" },
+    { "slug": "javascript", "name": "Javascript" },
+    { "slug": "website", "name": "Website" }
+  ]
+}

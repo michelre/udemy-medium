@@ -1,0 +1,12 @@
+.article-editor-container{
+  width: 60%;
+  margin: auto;
+  font-size: 21px;
+  pre {
+    font-family: "FF Kievit Pro" !important;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

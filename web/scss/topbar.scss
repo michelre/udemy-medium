@@ -1,0 +1,105 @@
+@import "variables";
+
+.topbar-container {
+  color: $gray;
+  box-shadow: inset 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+
+  > div {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .medium-logo {
+    width: 138px;
+    margin: auto;
+  }
+
+  .title-container {
+    box-shadow: inset 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    min-height: 65px;
+
+    div {
+      text-align: center;
+      display: flex;
+      width: 120px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .profile {
+    border-radius: 50%;
+    width: 32px;
+  }
+
+  .categories-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+
+
+    li {
+      margin-right: 15px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $gray;
+
+    &.selected, &:hover {
+      color: $gray-dark;
+    }
+  }
+}
+
+.topbar-editor-container {
+  color: $gray;
+  box-shadow: inset 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+  height: 65px;
+
+  .profile {
+    border-radius: 50%;
+    width: 32px;
+  }
+
+  a {
+    align-self: center;
+    .medium-logo {
+      width: 35px;
+    }
+  }
+
+  .title-container {
+    box-shadow: inset 0 -1px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 80%;
+    margin: auto;
+    height: 65px;
+
+    div {
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div:last-child{
+      margin-right: 0;
+      margin-left: auto;
+      min-width: 250px;
+    }
+  }
+}
+
