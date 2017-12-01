@@ -7,7 +7,11 @@ export const getVisibleArticles = (articles, categorySlug) => {
 };
 
 export const getArticles = () => axios.get('/api/articles')
-  .then(({ data }) => data.items);
+  .then(({ data }) => data);
+
+export const postArticle = () => axios.post('/api/articles', {}).then(({ data }) => data);
+
+export const getUser = () => axios.get('/api/user').then(({ data }) => data);
 
 export const getCategories = () => axios.get('/api/categories')
   .then(({ data }) => data.items);

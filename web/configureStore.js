@@ -1,12 +1,16 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import reducers from './reducers';
-import {getArticles, getCategories} from "./services";
+import thunk from 'redux-thunk';
+import {getArticles, getCategories, getUser} from "./services";
 
 const configureStore = () => {
   return Promise.all([
     getArticles(),
-    getCategories()
-  ]).then(([articles, categories]) => createStore(reducers, { articles, categories }))
+    getCategories(),
+    getUser(),
+  ])
+  .then(([articles, categories, user]) =>
+    createStore(reducers, { articles, categories, user }, applyMiddleware(thunk)))
 };
 
 export default configureStore;

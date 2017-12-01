@@ -18,13 +18,15 @@ class App extends React.Component {
       <Route exact path="/topic/:category" component={Articles}/>
       <Route exact path="/:articleId" component={Article}/>
       <Route exact path="/new-story" component={ArticleEditor}/>
+      <Route exact path="/:articleId/edit" component={ArticleEditor}/>
     </div>
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    categories: state.categories
+    categories: state.categories,
+    user: state.user,
   }
 }
 

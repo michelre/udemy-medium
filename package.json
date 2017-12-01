@@ -22,6 +22,8 @@
   "homepage": "https://github.com/michelre/udemy-medium#readme",
   "dependencies": {
     "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "debounce": "^1.1.0",
     "draft-js": "^0.10.4",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
@@ -37,7 +39,9 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
