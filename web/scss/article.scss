@@ -1,7 +1,6 @@
-@import "variables";
+@import 'variables';
 
 .article-container {
-
   font-size: 21px;
   padding: 0 20px;
   @media screen and (max-width: 1024px) {
@@ -16,11 +15,9 @@
   }
 
   .section {
-
     img:first-child {
       width: 100% !important;
     }
-
   }
 
   figure {
@@ -28,7 +25,7 @@
   }
 
   h4 {
-    font-family: "Kievit";
+    font-family: 'Kievit';
     font-size: 34px;
   }
 
@@ -55,11 +52,10 @@
   }
 
   pre {
-    background: rgba(0,0,0,.05);
+    background: rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     padding: 20px;
     white-space: pre-wrap;
     width: 100%;
   }
-
 }

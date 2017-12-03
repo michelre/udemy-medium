@@ -8,7 +8,9 @@
     "server:dev": "nodemon ./server",
     "build:cli": "webpack",
     "cli:dev": "webpack-dev-server",
-    "prettier": "prettier './web/components/*.js'"
+    "prettier:web": "prettier --single-quote --trailing-comma es5 --write './web/**/*.{js,scss}'",
+    "prettier:server": "prettier --single-quote --trailing-comma es5 --write './server/*.js'",
+    "prettier:config": "prettier --single-quote --trailing-comma es5 --write 'webpack.config.js'"
   },
   "repository": {
     "type": "git",

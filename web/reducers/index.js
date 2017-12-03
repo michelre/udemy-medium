@@ -8,7 +8,7 @@ const app = combineReducers({
   articles,
   categories,
   user,
-  ui
+  ui,
 });
 
 export default app;

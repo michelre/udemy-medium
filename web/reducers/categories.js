@@ -1,5 +1,5 @@
 const categories = (state = [], action) => {
-  return state
-}
+  return state;
+};
 
 export default categories;

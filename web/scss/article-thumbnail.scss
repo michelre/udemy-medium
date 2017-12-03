@@ -1,7 +1,6 @@
-@import "variables";
+@import 'variables';
 
 .article-thumb {
-
   @media screen and (max-width: 768px) {
     width: 45%;
   }
@@ -35,10 +34,10 @@
       margin-top: 0;
       color: $gray;
       overflow: hidden !important;
-      max-height: 60px!important;
-      text-overflow: ellipsis!important;
-      display: -webkit-box!important;
-      -webkit-line-clamp: 3!important;
+      max-height: 60px !important;
+      text-overflow: ellipsis !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 3 !important;
       -webkit-box-orient: vertical;
     }
 
@@ -49,8 +48,7 @@
       align-items: center;
       font-size: 15px;
 
-
-      div:last-child{
+      div:last-child {
         margin-right: 0;
         margin-left: auto;
 

@@ -1,5 +1,5 @@
 const user = (state = {}, action) => {
-  return state
-}
+  return state;
+};
 
 export default user;

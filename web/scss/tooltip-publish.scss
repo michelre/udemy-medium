@@ -1,8 +1,7 @@
-@import "variables";
+@import 'variables';
 
-
-.tooltip-publish-container{
-  font-family: "FF Kievit Pro";
+.tooltip-publish-container {
+  font-family: 'FF Kievit Pro';
   width: 320px;
   max-height: 320px !important;
   padding: 20px;
@@ -19,21 +18,22 @@
   > div {
     margin: 0;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       padding: 16px 0;
     }
 
-    &:last-child{
+    &:last-child {
       padding-top: 16px;
     }
   }
 
   > div {
-    &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
       border-bottom: 1px solid $gray-lighter;
     }
   }
-
 
   > div:last-child {
     display: flex;
