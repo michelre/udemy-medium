@@ -1,31 +1,79 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import Editor from 'react-medium-editor';
+import MediumEditor from 'medium-editor';
 import * as articleActions from '../actions/articles';
 import debounce from 'debounce';
+import * as R from 'ramda';
+import $ from 'jquery';
+require('medium-editor-insert-plugin')($);
 
 import '../scss/article-editor.scss';
 import 'medium-editor/src/sass/medium-editor.scss'
 import 'medium-editor/src/sass/themes/default.scss';
+import 'medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.min.css';
 
 class ArticleEditor extends React.Component {
 
-  handleChange(text, medium) {
-    const { match, articleActions, history } = this.props;
+  constructor(props){
+    super(props);
+    this.editorRef = null;
+    this.editorTitleRef = null;
+    this.handleChange = debounce(this.handleChange.bind(this), 1000);
+  }
+
+  shouldComponentUpdate(){
+    return false;
+  }
+
+  componentDidMount(){
+    const { article } = this.props;
+    const placeholder =  { placeholder: { text: 'Tell your story' } };
+    const dom = ReactDOM.findDOMNode(this.editorRef);
+    const titleDom = ReactDOM.findDOMNode(this.editorTitleRef);
+    this.medium = new MediumEditor(dom, placeholder);
+    this.mediumTitle = new MediumEditor(titleDom, placeholder);
+    $(dom).mediumInsert({
+      editor: this.medium,
+      addons: {
+        images: {
+          preview: false,
+          deleteScript: null,
+          fileUploadOptions: {
+            url: '/api/uploadImage',
+          }
+        }
+      }
+    });
+    if(article && article.content){
+      this.medium.setContent((article.content));
+    }
+    if(article && article.title){
+      this.mediumTitle.setContent((article.title));
+    }
+    this.medium.subscribe('editableInput', (event, editable) => {
+      this.handleChange($(editable).html(), 'content')
+    });
+    this.mediumTitle.subscribe('editableInput', (event, editable) => {
+      this.handleChange($(editable).html(), 'title')
+    });
+  }
+
+  handleChange(text, key) {
+    const { match, articleActions, history, user } = this.props;
     if(!match.params.articleId){
-      articleActions.addArticle({}).then((article) => {
-        history.push(`/${article.id}/edit`);
+      articleActions.addArticle({ [key]: text, author: user }).then((article) => {
+        history.push(`/articles/${article.id}/edit`);
       })
     } else {
-      const fn = debounce(() => console.log(match.params.articleId), 2000)
-      fn();
+      articleActions.updateArticle(match.params.articleId, { [key]: text });
     }
-    //const { }
   }
 
   render() {
-    const {user} = this.props;
+    const {user, article} = this.props;
     return <div className="article-editor-container">
       <div className="author-details m-t-md">
         <img src={user.image}/>
@@ -34,17 +82,21 @@ class ArticleEditor extends React.Component {
         </div>
       </div>
 
-      <Editor
-        tag="pre"
-        onChange={() => this.handleChange()}
-      />
+      <div className="m-t-lg">
+        <h1 ref={(elem) => this.editorTitleRef = elem}></h1>
+        <div ref={(elem) => this.editorRef = elem}></div>
+      </div>
 
     </div>
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {user: state.user}
+  const { match } = ownProps;
+  return {
+    user: state.user,
+    article: R.find((article) => article.id === match.params.articleId, state.articles),
+  }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

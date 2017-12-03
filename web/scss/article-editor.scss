@@ -2,8 +2,11 @@
   width: 60%;
   margin: auto;
   font-size: 21px;
-  pre {
+
+
+  pre, h1 {
     font-family: "FF Kievit Pro" !important;
+    margin: 0;
 
     &:focus {
       outline: none;

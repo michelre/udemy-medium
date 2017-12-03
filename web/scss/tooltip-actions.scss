@@ -1,12 +1,12 @@
 @import "variables";
 
 
-.tooltip-content-container{
+.tooltip-actions-container{
   font-size: 16px;
   padding: 8px 0;
   text-align: left;
   background: white;
-  min-width: 230px;
+  max-width: 280px;
   border-radius: 2px;
   color: $gray;
   ul {
@@ -25,8 +25,4 @@
     height: 1px;
     border: 0;
   }
-}
-
-.tooltip--no-actions {
-  font-size: 15px;
 }

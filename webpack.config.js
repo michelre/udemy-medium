@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {test: /\.js$/, exclude: /(node_modules)/, use: 'babel-loader'},
-      {test: /\.css$/, use: [{loader: "css-loader"}, {loader: "sass-loader"}]},
+      {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]},
       {test: /\.scss$/, use: [{loader: "style-loader"}, {loader: "css-loader"}, {loader: "sass-loader"}]},
       {test: /\.(png|jpg|gif)$/, use: [{loader: 'file-loader', options: {}}]},
       {
@@ -20,6 +20,14 @@ module.exports = {
             name: '[name].[ext]',      // override the default path
           }
         }]
+      },
+      {
+        test: require.resolve("blueimp-file-upload"),
+        use: "imports-loader?define=>false"
+      },
+      {
+        test: require.resolve("medium-editor-insert-plugin"),
+        use: "imports-loader?define=>false"
       }
     ]
   },

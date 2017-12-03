@@ -10,7 +10,7 @@ const TooltipContent = () => {
     <hr/>
     <ul>
       <li>
-        <Link to="/new-story">New Story</Link>
+        <Link to="/articles/new">New Story</Link>
       </li>
       <li>Stories</li>
       <li>Series</li>

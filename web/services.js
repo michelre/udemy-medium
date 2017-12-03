@@ -9,7 +9,13 @@ export const getVisibleArticles = (articles, categorySlug) => {
 export const getArticles = () => axios.get('/api/articles')
   .then(({ data }) => data);
 
-export const postArticle = () => axios.post('/api/articles', {}).then(({ data }) => data);
+export const postArticle = (article) => axios.post('/api/articles', article).then(({ data }) => data);
+
+export const publishArticle = (article) => axios.post(`/api/articles/${article.id}/publish`, article).then(({ data }) => data);
+
+export const deleteArticleAPI = (id) => axios.delete(`/api/articles/${id}`, {});
+
+export const putArticle = (id, article) => axios.put(`/api/articles/${id}`, article).then(({ data }) => data);
 
 export const getUser = () => axios.get('/api/user').then(({ data }) => data);
 

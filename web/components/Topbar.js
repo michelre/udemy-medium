@@ -1,11 +1,10 @@
 import React from 'react';
 import '../scss/topbar.scss';
-import profileIcon from '../assets/profile-placeholder.jpg';
 import mediumIcon from '../assets/medium.svg';
 import * as R from 'ramda';
-import {NavLink} from 'react-router-dom';
-import Tooltip from 'react-portal-tooltip';
+import {NavLink, Link} from 'react-router-dom';
 import TooltipContent from './TooltipContent';
+import ReactTooltip from 'react-tooltip'
 
 class Topbar extends React.Component {
 
@@ -17,18 +16,7 @@ class Topbar extends React.Component {
   }
 
   render() {
-    const tooltipStyle = {
-      style: {
-        padding: 0,
-        border: '1px solid rgba(0,0,0, 0.1)',
-        boxShadow: 'none'
-      },
-      arrowStyle: {
-        color: '#FFF',
-        borderColor: 'rgba(0,0,0, 0.1)',
-      }
-    };
-    const {categories} = this.props;
+    const {categories, showEditButton, articleId, user} = this.props;
     if (!categories) return null;
     return <div className="topbar-container">
       <div>
@@ -36,13 +24,15 @@ class Topbar extends React.Component {
           <button className="medium-btn">Upgrade</button>
           <img className="medium-logo" src={mediumIcon}/>
           <div>
+            {(showEditButton) ? <Link to={`/articles/${articleId}/edit`}>Edit</Link> : ''}
             <i className="fa fa-search"/>
             <i className="fa fa-bell-o"/>
-            <img className="profile" src={profileIcon} id="tooltip-parent"
+            <img className="profile cursor-pointer" src={user.image} id="tooltip-parent"
+                 data-tip="tooltip"
                  onClick={() => this.setState({tooltipUser: !this.state.tooltipUser})}/>
-            <Tooltip style={tooltipStyle} tooltipTimeout={0} active={this.state.tooltipUser} position="bottom" arrow="center" parent="#tooltip-parent">
-              <TooltipContent/>
-            </Tooltip>
+            <ReactTooltip globalEventOff='click' type="light" className="react-tooltip-custom" event="click" place="bottom">
+              <TooltipContent />
+            </ReactTooltip>
           </div>
         </div>
         <ul className="categories-container">

@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import "../scss/article-thumbnail.scss";
 
+import noImage from '../assets/no-image.jpg';
+
 const ArticleThumbnail = ({ article }) => {
-  return <Link to={`/${article.id}`} className="article-thumb">
-    <div className="thumbnail-image" style={{ backgroundImage: `url(${article.thumbnail})` }}></div>
+  return <Link to={`/articles/${article.id}/view`} className="article-thumb">
+    <div className="thumbnail-image" style={{ backgroundImage: `url(${article.thumbnail || noImage})` }}></div>
     <div>
       <div className="content">
         <h3>{article.title}</h3>
@@ -15,7 +17,7 @@ const ArticleThumbnail = ({ article }) => {
             <img src={article.author.image} />
             <div>
               <div className="author-name">{article.author.name}</div>
-              <div>{moment(article.pubDate).format('MMM DD')} - {article.duration} min. read</div>
+              <div>{(!article.pubDate) ? 'Draft' : `${moment(article.pubDate).format('MMM DD')} - ${article.duration} min. read`}</div>
             </div>
           </div>
           <div>

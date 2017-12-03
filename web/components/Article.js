@@ -1,32 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
-import axios from 'axios';
 import moment from 'moment';
+import * as R from 'ramda';
 
 import '../scss/article.scss';
 
 class Article extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      article: null
-    }
-  }
-
-  componentDidMount() {
-    const {match} = this.props;
-    axios.get(`/api/articles/${match.params.articleId}`).then((d) => {
-      this.setState({article: d.data})
-    })
-  }
 
   render() {
-    const {article} = this.state;
-    if (!article) {
-      return null
-    }
+    const { article } = this.props;
     return <div className="article-container">
       <div className="author-details">
         <img src={article.author.image}/>
@@ -44,4 +28,11 @@ class Article extends React.Component {
   }
 }
 
-export default withRouter(connect()(Article));
+const mapStateToProps = (state, ownProps) => {
+  const { match } = ownProps;
+  return {
+    article: R.find((article) => article.id === match.params.articleId, state.articles)
+  }
+};
+
+export default withRouter(connect(mapStateToProps)(Article));

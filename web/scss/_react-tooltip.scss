@@ -1,0 +1,25 @@
+@import "variables";
+
+.react-tooltip-custom {
+  padding: 0 !important;
+  box-shadow: 0 0 2px 0 $gray-light !important;
+  opacity: 1 !important;
+
+  &::before {
+    border-bottom: 8px solid $gray-light !important;
+    border-left: 9px solid transparent !important;
+    border-right: 9px solid transparent !important;
+    top: -8px !important;
+    margin-left: -9px !important;
+  }
+
+  &::after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: -7px;
+    left: 50%;
+    margin-left: -8px;
+  }
+}
+
+.react-tooltip-custom { pointer-events: auto !important; }

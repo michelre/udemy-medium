@@ -18,4 +18,15 @@
   &:active, &:focus {
     outline: 0;
   }
+
+  &.btn--publish {
+
+    border-color: $green;
+    color: $green;
+
+    &:hover {
+      border-color: darken($green, 0.5);
+      color: darken($green, 0.5);
+    }
+  }
 }
